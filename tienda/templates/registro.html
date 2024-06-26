@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="registro.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'tienda/css/registro.css' %}">
     <title>Registro</title>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="validacionregistro.js"></script>
+    <script src="{% static 'tienda/js/validacionregistro.js' %}"></script>
 </head>
 <body>
     <form class="form-registro" id="registro">
@@ -26,7 +27,7 @@
         <input type="checkbox" name="Deacuerdo" id="Deacuerdo">
         <label id="Deacuerdo" for="Deacuerdo">Estoy de acuerdo con <a href="#">Terminos y condiciones</a></label>
         <button type="submit" class="boton" >Registrar</button>
-        <p><a href="login.html">Iniciar sesion</a></p>
+        <p><a href="{% url 'login' %}">Iniciar sesion</a></p>
     </form>
 </body>
 </html>
