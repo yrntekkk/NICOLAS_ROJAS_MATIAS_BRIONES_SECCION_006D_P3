@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'tienda/css/registro.css' %}">
+    <title>Login</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="{% static 'tienda/js/validacionlogin.js' %}"></script>
+    <script src="{% static 'tienda/js/main.js' %}"></script>
+</head>
+<body>
+    <form class="form-registro" id="registro">
+        <h4><span class="texto-registro">Animal</span><span>Shop</span></h4>
+        <label for="correo">Correo</label>
+        <input class="control" type="email" name="correo" id="correo" placeholder="Ingrese su correo" required>
+        <label for="contraseña">Contraseña</label>
+        <input class="control" type="password" name="contraseña" id="contraseña" placeholder="Ingrese su contraseña" required>
+        <input type="checkbox" name="Recuerdame" id="Recuerdame">
+        <label for="Recuerdame">Recordarme</label>
+        <button type="submit" class="boton" id="btnNotificacion" >Iniciar sesion</button>
+        <p><a href="{% url 'index' %}"><span class="texto-registro">Animal</span><span>Shop</span></a></p>
+        <p><a href="{% url 'registro' %}">No tienes cuenta?</a></p>
+    </form>
+</body>
+</html>

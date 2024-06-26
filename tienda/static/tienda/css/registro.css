@@ -1,0 +1,94 @@
+body{
+    background: #161815;
+    color: white;
+    background-image: url(img/tactile_noise.png);
+    
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.form-registro{
+    width: 400px;
+    background: #343a40;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 5px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    box-shadow: 7px 13px 37px #000;
+}
+
+.form-registro h4{
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.form-registro .texto-registro{
+    color: #dc3545;
+}
+
+.control{
+    width: 100%;
+    background: #343a40;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid #dc3545;
+    font-size: 18px;
+    color: white;
+}
+
+.form-registro p{
+    height: 40px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 40px;
+}
+
+.form-registro a{
+    color: white;
+    text-decoration: none;
+}
+.form-registro a:hover{
+    color: #dc3545;
+    text-decoration: underline;
+}
+
+.form-registro .boton{
+    width: 100%;
+    background: #dc3545;
+    border-radius: 5px;
+    border-color: white;
+    padding: 12px;
+    color: white;
+    margin: 16px 0;
+    font-size: 16px;
+}
+
+.form-registro .boton:hover{
+    background: #343a40;
+}
+
+.form-registro label{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.form-registro #Deacuerdo{
+    font-size: small;
+}
+
+.form-registro #inicio{
+    height: 40px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 40px;
+
+}
