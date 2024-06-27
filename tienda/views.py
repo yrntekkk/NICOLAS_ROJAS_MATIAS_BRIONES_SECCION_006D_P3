@@ -9,3 +9,7 @@ def login(request):
 
 def registro(request):
     return render(request, 'registro.html')
+
+def carrito(request):
+    return render(request, 'carrito.html')
+

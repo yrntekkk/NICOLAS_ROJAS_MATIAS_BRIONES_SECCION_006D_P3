@@ -16,7 +16,7 @@ $(document).ready(function(){
 
 
         alert("Inicio de sesion Exitoso!");
-        window.location.href = "/index/";
+        window.location.href = index;
 
     });
 });

@@ -1,6 +1,6 @@
-
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'tienda/css/style.css' %}">
-    
+
 </head>
 
 <body>
@@ -55,12 +55,15 @@
                     </li>
                     <li>
                         <button type="button" class="btn btn-outline-danger me-2" id="botoniniciar">
-                            <a class="text-danger" style="text-decoration: none;" href="{% url 'login' %}">Iniciar Sesion</a>
+                            <a class="text-danger" style="text-decoration: none;" href="{% url 'login' %}">Iniciar
+                                Sesion</a>
                         </button>
                     </li>
                     <li>
-                        <button type="button" class="btn btn-outline-danger me-2" id="botoncerrar"> <!--Utilizamos la funcion onclick para que al hacer click en el boton de cerrar sesion se ejecute la funcion cerrar sesion-->
-                            <a class="text-danger" style="text-decoration: none;" href="" onclick="cerrarsesion()">Cerrar Sesion</a>
+                        <button type="button" class="btn btn-outline-danger me-2" id="botoncerrar">
+                            <!--Utilizamos la funcion onclick para que al hacer click en el boton de cerrar sesion se ejecute la funcion cerrar sesion-->
+                            <a class="text-danger" style="text-decoration: none;" href=""
+                                onclick="cerrarsesion()">Cerrar Sesion</a>
                         </button>
                     </li>
 
@@ -77,28 +80,20 @@
                         </a>
                         <ul class="dropdown-menu bg-dark">
                             <li><a class="dropdown-item mb-3" href="#box3">
-                                    <div class="card" style="width: 11rem;">
-                                        <img src="{% static 'tienda/img/dog-chow-for-cachorro-raza-medgde-21-kg.jpg' %}" class="card-img-top"
-                                            alt="...">
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title">Comida Premium</h5>
-                                            <p class="card-text">Precio: $45.990</p>
-                                        </div>
+                                <div class="container mt-5">
+                                    <div class="row">
+                                    <div class="cart text-center">
+                                        <h3 class="text-light">Carrito de Compras</h3>
+                                        <ul id="cart-items" class="text-light" style="list-style: none;""></ul>
+                                        <p class="text-light">Total: $<span id="total-price" class="text-light"></span></p>
                                     </div>
-                                </a></li>
-                            <li><a class="dropdown-item mb-3" href="#box4">
-                                    <div class="card" style="width: 11rem;">
-                                        <img src="{% static 'tienda/img/Collar gato.jpg' %}" class="card-img-top" alt="...">
-                                        <div class="card-body text-center">
-                                            <h5 class="card-title">Collar Gato</h5>
-                                            <p class="card-text">Precio: $5.190</p>
-                                        </div>
-                                    </div>
+                                </div>
+                            </div>
                                 </a></li>
                             <li>
                                 <hr>
                                 <div class="d-grid gap-2">
-                                    <button class="btn btn-danger" type="button">Ir a pagar</button>
+                                    <button class="btn btn-danger" type="button"><a class="text-light" style="text-decoration: none;" href="{% url 'carrito' %}">Ir a pagar</a></button>
                                 </div>
                             </li>
                         </ul>
@@ -189,15 +184,19 @@
     <div class="container mb-5" id="perros">
         <div class="row text-center">
             <h2 class="text-uppercase text-center mb-5"><span class="text-bg-danger">Perros</span><span
-                    class="text-bg-light"><img src="{% static 'tienda/img/perro1.png' %}" alt="" style="padding-bottom: 8px;" width="40px"
-                        height="40px"></span></h2>
+                    class="text-bg-light"><img src="{% static 'tienda/img/perro1.png' %}" alt=""
+                        style="padding-bottom: 8px;" width="40px" height="40px"></span></h2>
             <div class="col-lg-3 col-md-6 mb-5">
                 <div class="card" style="width: 18rem;">
-                    <img src="{% static 'tienda/img/dog-chow-for-cachorro-raza-medgde-21-kg.jpg' %}" class="card-img-top" alt="...">
+                    <img src="{% static 'tienda/img/dog-chow-for-cachorro-raza-medgde-21-kg.jpg' %}"
+                        class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Dog Chow Cachorro Raza Med/Gde 18 KG</h5>
                         <p class="card-text">Precio: $45.990</p>
-                        <a href="#" class="btn btn-danger">Añadir al carrito</a>
+                        <button class="btn btn-danger"
+                            onclick="addToCart('Dog Chow Cachorro Raza Med/Gde 18 KG', 45990)">
+                            Añadir al Carrito
+                        </button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalProducto1">
                             Ver más
@@ -207,11 +206,14 @@
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <div class="card" style="width: 18rem;">
-                    <img src="{% static 'tienda/img/mini-dingo-pack-semanal-7-unidades.jpg' %}" class="card-img-top" alt="...">
+                    <img src="{% static 'tienda/img/mini-dingo-pack-semanal-7-unidades.jpg' %}" class="card-img-top"
+                        alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Mini Dingo Pack Semanal 7 unidades</h5>
                         <p class="card-text">Precio:$5.990</p>
-                        <a href="#" class="btn btn-danger">Añadir al carrito</a>
+                        <button class="btn btn-danger" onclick="addToCart('Mini Dingo Pack Semanal 7 unidades', 5990)">
+                            Añadir al Carrito
+                        </button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalProducto2">
                             Ver más
@@ -221,11 +223,15 @@
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <div class="card" style="width: 18rem;">
-                    <img src="{% static 'tienda/img/pouch-maxi-adult-140-grs-pack-10.jpg' %}" class="card-img-top" alt="...">
+                    <img src="{% static 'tienda/img/pouch-maxi-adult-140-grs-pack-10.jpg' %}" class="card-img-top"
+                        alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Pouch Medium Adult 140 grs Pack 10 unidades</h5>
                         <p class="card-text">Precio: $14.990</p>
-                        <a href="#" class="btn btn-danger">Añadir al carrito</a>
+                        <button class="btn btn-danger"
+                            onclick="addToCart('Pouch Medium Adult 140 grs Pack 10 unidades', 14990)">
+                            Añadir al Carrito
+                        </button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalProducto3">
                             Ver más
@@ -235,11 +241,15 @@
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <div class="card" style="width: 18rem;">
-                    <img src="{% static 'tienda/img/pro-plan-adult-sensitive-salmon-rice-15-kg-.jpg' %}" class="card-img-top" alt="...">
+                    <img src="{% static 'tienda/img/pro-plan-adult-sensitive-salmon-rice-15-kg-.jpg' %}"
+                        class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Pro Plan Adult Sensitive Salmon & Rice 15 KG</h5>
                         <p class="card-text">Precio: $74.990</p>
-                        <a href="#" class="btn btn-danger">Añadir al carrito</a>
+                        <button class="btn btn-danger"
+                            onclick="addToCart('Pro Plan Adult Sensitive Salmon & Rice 15 KG', 74990)">
+                            Añadir al Carrito
+                        </button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalProducto4">
                             Ver más
@@ -249,11 +259,14 @@
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <div class="card" style="width: 18rem;">
-                    <img src="{% static 'tienda/img/acondicionador-sir-dog-390ml.jpg' %}" class="card-img-top" alt="...">
+                    <img src="{% static 'tienda/img/acondicionador-sir-dog-390ml.jpg' %}" class="card-img-top"
+                        alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Acondicionador Sir Dog 390ml</h5>
                         <p class="card-text">Precio: $7.990</p>
-                        <a href="#" class="btn btn-danger">Añadir al carrito</a>
+                        <button class="btn btn-danger" onclick="addToCart('Acondicionador Sir Dog 390ml', 7990)">
+                            Añadir al Carrito
+                        </button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalProducto5">
                             Ver más
@@ -263,11 +276,14 @@
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <div class="card" style="width: 18rem;">
-                    <img src="{% static 'tienda/img/juguete-afp-treat-hider-monster-green.jpg' %}" class="card-img-top" alt="...">
+                    <img src="{% static 'tienda/img/juguete-afp-treat-hider-monster-green.jpg' %}" class="card-img-top"
+                        alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Juguete AFP Treat Hider Perro</h5>
                         <p class="card-text">Precio: $11.990</p>
-                        <a href="#" class="btn btn-danger">Añadir al carrito</a>
+                        <button class="btn btn-danger" onclick="addToCart('Juguete AFP Treat Hider Perro', 11990)">
+                            Añadir al Carrito
+                        </button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalProducto6">
                             Ver más
@@ -277,11 +293,15 @@
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <div class="card" style="width: 18rem;">
-                    <img src="{% static 'tienda/img/juguete-de-latex-con-forma-de-cerdo-15-cm.jpg' %}" class="card-img-top" alt="...">
+                    <img src="{% static 'tienda/img/juguete-de-latex-con-forma-de-cerdo-15-cm.jpg' %}"
+                        class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Juguete de látex con forma de cerdo</h5>
                         <p class="card-text">Precio: $5.990</p>
-                        <a href="#" class="btn btn-danger">Añadir al carrito</a>
+                        <button class="btn btn-danger"
+                            onclick="addToCart('Juguete de látex con forma de cerdo', 5990)">
+                            Añadir al Carrito
+                        </button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalProducto7">
                             Ver más
@@ -291,11 +311,15 @@
             </div>
             <div class="col-lg-3 col-md-6 mb-5">
                 <div class="card" style="width: 18rem;">
-                    <img src="{% static 'tienda/img/juguete-de-latex-con-forma-de-vaca-17-cm.jpg' %}" class="card-img-top" alt="...">
+                    <img src="{% static 'tienda/img/juguete-de-latex-con-forma-de-vaca-17-cm.jpg' %}"
+                        class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Juguete de látex con forma de vaca</h5>
                         <p class="card-text">Precio: $10.990</p>
-                        <a href="#" class="btn btn-danger">Añadir al carrito</a>
+                        <button class="btn btn-danger"
+                            onclick="addToCart('Juguete de látex con forma de vaca', 10990)">
+                            Añadir al Carrito
+                        </button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                             data-bs-target="#modalProducto8">
                             Ver más
@@ -308,15 +332,18 @@
         <div class="container mb-5" id="gatos">
             <div class="row text-center">
                 <h2 class="text-uppercase text-center mb-5"><span class="text-bg-danger">Gatos</span><span
-                        class="text-bg-light"><img src="{% static 'tienda/img/gato1.png' %}" alt="" style="padding-bottom: 8px;" width="40px"
-                            height="40px"></span></h2>
+                        class="text-bg-light"><img src="{% static 'tienda/img/gato1.png' %}" alt=""
+                            style="padding-bottom: 8px;" width="40px" height="40px"></span></h2>
                 <div class="col-lg-3 col-md-6 mb-5">
                     <div class="card" style="width: 18rem;">
                         <img src="{% static 'tienda/img/ArenaGato.jpg' %}" class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Arena de gato Super Mix Premium</h5>
                             <p class="card-text">Precio: $21.990</p>
-                            <a href="#" class="btn btn-danger">Añadir al carrito</a>
+                            <button class="btn btn-danger"
+                                onclick="addToCart('Arena de gato Super Mix Premium', 21990)">
+                                Añadir al Carrito
+                            </button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                 data-bs-target="#modalProducto9">
                                 Ver más
@@ -330,7 +357,10 @@
                         <div class="card-body">
                             <h5 class="card-title">Collar Zeecat Astro Azul y Blanco</h5>
                             <p class="card-text">Precio: $5.190</p>
-                            <a href="#" class="btn btn-danger">Añadir al carrito</a>
+                            <button class="btn btn-danger"
+                                onclick="addToCart('Collar Zeecat Astro Azul y Blanco', 5190)">
+                                Añadir al Carrito
+                            </button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                 data-bs-target="#modalProducto10">
                                 Ver más
@@ -340,11 +370,15 @@
                 </div>
                 <div class="col-lg-3 col-md-6 mb-5">
                     <div class="card" style="width: 18rem;">
-                        <img src="{% static 'tienda/img/alimento-agility-cats-premium-adult-15-kg.jpg' %}" class="card-img-top" alt="...">
+                        <img src="{% static 'tienda/img/alimento-agility-cats-premium-adult-15-kg.jpg' %}"
+                            class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Alimento Agility Cats Premium Adult 1,5 kg</h5>
                             <p class="card-text">Precio: $8.990</p>
-                            <a href="#" class="btn btn-danger">Añadir al carrito</a>
+                            <button class="btn btn-danger"
+                                onclick="addToCart('Alimento Agility Cats Premium Adult 1,5 kg', 8990)">
+                                Añadir al Carrito
+                            </button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                 data-bs-target="#modalProducto11">
                                 Ver más
@@ -354,11 +388,15 @@
                 </div>
                 <div class="col-lg-3 col-md-6 mb-5">
                     <div class="card" style="width: 18rem;">
-                        <img src="{% static 'tienda/img/patagon-raw-golosina-gato-pollo-35g.jpg' %}" class="card-img-top" alt="...">
+                        <img src="{% static 'tienda/img/patagon-raw-golosina-gato-pollo-35g.jpg' %}"
+                            class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Patagon Raw Golosina Gato Pollo 35g</h5>
                             <p class="card-text">Precio: $4.790</p>
-                            <a href="#" class="btn btn-danger">Añadir al carrito</a>
+                            <button class="btn btn-danger"
+                                onclick="addToCart('Patagon Raw Golosina Gato Pollo 35g', 4790)">
+                                Añadir al Carrito
+                            </button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                 data-bs-target="#modalProducto12">
                                 Ver más
@@ -368,11 +406,14 @@
                 </div>
                 <div class="col-lg-3 col-md-6 mb-5">
                     <div class="card" style="width: 18rem;">
-                        <img src="{% static 'tienda/img/rasgunador-catit-hipopotamo.jpg' %}" class="card-img-top" alt="...">
+                        <img src="{% static 'tienda/img/rasgunador-catit-hipopotamo.jpg' %}" class="card-img-top"
+                            alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Rasguñador Catit Hipopotamo</h5>
                             <p class="card-text">Precio: $23.990</p>
-                            <a href="#" class="btn btn-danger">Añadir al carrito</a>
+                            <button class="btn btn-danger" onclick="addToCart('Rasguñador Catit Hipopotamo', 23990)">
+                                Añadir al Carrito
+                            </button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                 data-bs-target="#modalProducto13">
                                 Ver más
@@ -386,7 +427,9 @@
                         <div class="card-body">
                             <h5 class="card-title">Arañador Raton Sisal Premium </h5>
                             <p class="card-text">Precio: 15.390</p>
-                            <a href="#" class="btn btn-danger">Añadir al carrito</a>
+                            <button class="btn btn-danger" onclick="addToCart('Arañador Raton Sisal Premium', 15390)">
+                                Añadir al Carrito
+                            </button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                 data-bs-target="#modalProducto14">
                                 Ver más
@@ -400,7 +443,9 @@
                         <div class="card-body">
                             <h5 class="card-title">Cañas Kong Active Premium</h5>
                             <p class="card-text">Precio: $5.990</p>
-                            <a href="#" class="btn btn-danger">Añadir al carrito</a>
+                            <button class="btn btn-danger" onclick="addToCart('Cañas Kong Active Premium', 5990)">
+                                Añadir al Carrito
+                            </button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                 data-bs-target="#modalProducto15">
                                 Ver más
@@ -410,11 +455,15 @@
                 </div>
                 <div class="col-lg-3 col-md-6 mb-5">
                     <div class="card" style="width: 18rem;">
-                        <img src="{% static 'tienda/img/juguete-para-gato-play-baguette-de-atun.jpg' %}" class="card-img-top" alt="...">
+                        <img src="{% static 'tienda/img/juguete-para-gato-play-baguette-de-atun.jpg' %}"
+                            class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Juguete para Gato PLAY Baguette de Atun</h5>
                             <p class="card-text">Precio: $8.990</p>
-                            <a href="#" class="btn btn-danger">Añadir al carrito</a>
+                            <button class="btn btn-danger"
+                                onclick="addToCart('Juguete para Gato PLAY Baguette de Atun', 8990)">
+                                Añadir al Carrito
+                            </button>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
                                 data-bs-target="#modalProducto16">
                                 Ver más
@@ -493,7 +542,8 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header bg-dark">
-                        <h5 class="modal-title text-light" id="modalProducto1Label">Pro Plan Adult Sensitive Salmon & Rice 15 KG</h5>
+                        <h5 class="modal-title text-light" id="modalProducto1Label">Pro Plan Adult Sensitive Salmon &
+                            Rice 15 KG</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body text-dark text-center">
@@ -538,7 +588,9 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body text-dark text-center">
-                        A sus perros les gustan los lindos juguetes de cariño, pero también les gustan las golosinas. ¡Este juguete ha sido especialmente diseñado para ambos! Un juguete para abrazar pero también para esconder golosinas.
+                        A sus perros les gustan los lindos juguetes de cariño, pero también les gustan las golosinas.
+                        ¡Este juguete ha sido especialmente diseñado para ambos! Un juguete para abrazar pero también
+                        para esconder golosinas.
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
@@ -552,11 +604,13 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header bg-dark">
-                        <h5 class="modal-title text-light" id="modalProducto1Label">Juguete de látex con forma de cerdo</h5>
+                        <h5 class="modal-title text-light" id="modalProducto1Label">Juguete de látex con forma de cerdo
+                        </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body text-dark text-center">
-                        ¡Despierta la emoción en tu perro con nuestro juguete de látex forma de cerdo! Diseñado para diversión duradera, este juguete mantendrá a tu perro entretenido durante horas.
+                        ¡Despierta la emoción en tu perro con nuestro juguete de látex forma de cerdo! Diseñado para
+                        diversión duradera, este juguete mantendrá a tu perro entretenido durante horas.
                         Su textura suave protege sus dientes mientras disfruta de un juego seguro y emocionante.
                         Juguete de látex con forma de cerdo 23 cm
                     </div>
@@ -572,12 +626,14 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header bg-dark">
-                        <h5 class="modal-title text-light" id="modalProducto1Label">Juguete de látex con forma de vaca</h5>
+                        <h5 class="modal-title text-light" id="modalProducto1Label">Juguete de látex con forma de vaca
+                        </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body text-dark text-center">
-                        ¡El juguete de látex perfecto para perros! Divertido y llamativo. Proporciona horas de diversión para su mascota mientras cuida sus dientes.
-                        ¡No esperes para ver su cola moverse de felicidad!  Juguete de látex con forma de vaca 17 cm
+                        ¡El juguete de látex perfecto para perros! Divertido y llamativo. Proporciona horas de diversión
+                        para su mascota mientras cuida sus dientes.
+                        ¡No esperes para ver su cola moverse de felicidad! Juguete de látex con forma de vaca 17 cm
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
@@ -595,7 +651,10 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body text-dark text-center">
-                        Para aquellos que buscan una arena eficaz y conveniente, ha llegado Catit SúperMix que actua evitando todos los olores, con una increible aglutinacion, y con contenido de bentonita de sodio,de acción durable, ultra absorbente, ofrece un control superior del olor mientras que la acción ayuda a reducir la formación de grumos, para la limpieza .
+                        Para aquellos que buscan una arena eficaz y conveniente, ha llegado Catit SúperMix que actua
+                        evitando todos los olores, con una increible aglutinacion, y con contenido de bentonita de
+                        sodio,de acción durable, ultra absorbente, ofrece un control superior del olor mientras que la
+                        acción ayuda a reducir la formación de grumos, para la limpieza .
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
@@ -609,12 +668,19 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header bg-dark">
-                        <h5 class="modal-title text-light" id="modalProducto1Label">Collar Zeecat Astro Azul y Blanco</h5>
+                        <h5 class="modal-title text-light" id="modalProducto1Label">Collar Zeecat Astro Azul y Blanco
+                        </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body text-dark text-center">
-                        Dale a tu gato el mejor estilo y seguridad con el collar Zeecat Astro en azul y blanco. Fabricado con poliéster súper suave, este collar es cómodo para el pelaje de tu felino y viene en talla única, ajustable para adaptarse perfectamente. La hebilla separable garantiza la seguridad de tu gato, ya que se abrirá automáticamente si se queda atrapado, asegurando su bienestar, especialmente en exteriores. Con un diseño tejido Jacquard 3D, este collar no solo es funcional sino también elegante.
-                        ¡Encuentra el collar Zeecat Astro en Punto Mascotas y dale a tu gato la comodidad y el estilo que se merece!
+                        Dale a tu gato el mejor estilo y seguridad con el collar Zeecat Astro en azul y blanco.
+                        Fabricado con poliéster súper suave, este collar es cómodo para el pelaje de tu felino y viene
+                        en talla única, ajustable para adaptarse perfectamente. La hebilla separable garantiza la
+                        seguridad de tu gato, ya que se abrirá automáticamente si se queda atrapado, asegurando su
+                        bienestar, especialmente en exteriores. Con un diseño tejido Jacquard 3D, este collar no solo es
+                        funcional sino también elegante.
+                        ¡Encuentra el collar Zeecat Astro en Punto Mascotas y dale a tu gato la comodidad y el estilo
+                        que se merece!
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
@@ -628,11 +694,14 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header bg-dark">
-                        <h5 class="modal-title text-light" id="modalProducto1Label">Alimento Agility Cats Premium Adult 1,5 kg</h5>
+                        <h5 class="modal-title text-light" id="modalProducto1Label">Alimento Agility Cats Premium Adult
+                            1,5 kg</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body text-dark text-center">
-                        Descubre la excelencia en nutrición para tu gato con Agility, un alimento Premium completo. Una mezcla equilibrada de proteínas de alta digestibilidad provenientes del hígado de merluza, promoviendo músculos fuertes y un metabolismo saludable.
+                        Descubre la excelencia en nutrición para tu gato con Agility, un alimento Premium completo. Una
+                        mezcla equilibrada de proteínas de alta digestibilidad provenientes del hígado de merluza,
+                        promoviendo músculos fuertes y un metabolismo saludable.
                         Compra ahora y consiente a tu gato con una piel radiante y un pelaje brillante.
                     </div>
                     <div class="modal-footer">
@@ -647,12 +716,16 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header bg-dark">
-                        <h5 class="modal-title text-light" id="modalProducto1Label">Patagon Raw Golosina Gato Pollo 35g</h5>
+                        <h5 class="modal-title text-light" id="modalProducto1Label">Patagon Raw Golosina Gato Pollo 35g
+                        </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body text-dark text-center">
-                        Descubre la autenticidad de Patagon Raw Snack Pechuga de Pollo, una delicia pura de la Patagonia chilena. El mono-ingrediente de carne de pollo, sin aditivos ni sal añadida, es ideal para perros con alergias.
-                        Cómpralo en Punto Mascotas. Producto de calidad bajo en grasas, sin granos ni gluten, asegura un festín natural y nutritivo para tu leal amigo felino.
+                        Descubre la autenticidad de Patagon Raw Snack Pechuga de Pollo, una delicia pura de la Patagonia
+                        chilena. El mono-ingrediente de carne de pollo, sin aditivos ni sal añadida, es ideal para
+                        perros con alergias.
+                        Cómpralo en Punto Mascotas. Producto de calidad bajo en grasas, sin granos ni gluten, asegura un
+                        festín natural y nutritivo para tu leal amigo felino.
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
@@ -670,7 +743,10 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body text-dark text-center">
-                        Rascadores Catit Zoo son los rascadores para gatos con forma de animales más modernos. Se trata de rascadores de gran tamaño hechos de cartón corrugado y que incluyen una bolsita de hierba gatera (catnip entre otras). Algunos de los diseños son 2 en 1, esto significa que contienen un segundo rascador extraíble.
+                        Rascadores Catit Zoo son los rascadores para gatos con forma de animales más modernos. Se trata
+                        de rascadores de gran tamaño hechos de cartón corrugado y que incluyen una bolsita de hierba
+                        gatera (catnip entre otras). Algunos de los diseños son 2 en 1, esto significa que contienen un
+                        segundo rascador extraíble.
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
@@ -688,7 +764,11 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body text-dark text-center">
-                        El Arañador Ratón Sisal es la opción perfecta para cuidar las garras de tu gato mientras se divierte. Con sisal de alta calidad pegado, este arañador ofrece una superficie resistente y duradera para que tu gato pueda afilar sus garras de manera segura. Además, cuenta con una campana y sonajero incorporados para estimular el juego y la curiosidad de tu mascota. Asegura la salud y el entretenimiento de tu gato con este arañador.
+                        El Arañador Ratón Sisal es la opción perfecta para cuidar las garras de tu gato mientras se
+                        divierte. Con sisal de alta calidad pegado, este arañador ofrece una superficie resistente y
+                        duradera para que tu gato pueda afilar sus garras de manera segura. Además, cuenta con una
+                        campana y sonajero incorporados para estimular el juego y la curiosidad de tu mascota. Asegura
+                        la salud y el entretenimiento de tu gato con este arañador.
                         Encuéntralo en Punto Mascotas y regala a tu felino horas de diversión.
                     </div>
                     <div class="modal-footer">
@@ -707,7 +787,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body text-dark text-center">
-                        La caña Active Kong Premium está diseñado para el juego interactivo, con Catnip en el interior del juguete para la estimulación de su felino.
+                        La caña Active Kong Premium está diseñado para el juego interactivo, con Catnip en el interior
+                        del juguete para la estimulación de su felino.
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
@@ -721,11 +802,14 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header bg-dark">
-                        <h5 class="modal-title text-light" id="modalProducto1Label">Juguete para Gato PLAY Baguette de Atun</h5>
+                        <h5 class="modal-title text-light" id="modalProducto1Label">Juguete para Gato PLAY Baguette de
+                            Atun</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body text-dark text-center">
-                        Estos juguetes de peluche rellenos de hierba gatera orgánica USDA en forma de sushi, frutas tropicales, verduras frescas de granja, un ala de pollo crujiente y rosquillas dignas de babear. Puedes seguir la dieta: ¡vive en el maullido y trata a tus gatos con sus comidas favoritas!
+                        Estos juguetes de peluche rellenos de hierba gatera orgánica USDA en forma de sushi, frutas
+                        tropicales, verduras frescas de granja, un ala de pollo crujiente y rosquillas dignas de babear.
+                        Puedes seguir la dieta: ¡vive en el maullido y trata a tus gatos con sus comidas favoritas!
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
@@ -747,41 +831,44 @@
                 </div>
             </div>
         </div>
-<!--Footer con redes sociales-->
-    <footer class="footer bg-dark" id="contactos">
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-6 mt-5">
-                    <h5>Contacto</h5>
-                    <p>Direccion: Volcan Guallatiri 5922, La Florida</p>
-                    <p>Email: AnimalShop@gmail.com</p>
-                    <p>Telefono: +56945606045</p>
+        <!--Footer con redes sociales-->
+        <footer class="footer bg-dark" id="contactos">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-6 mt-5">
+                        <h5>Contacto</h5>
+                        <p>Direccion: Volcan Guallatiri 5922, La Florida</p>
+                        <p>Email: AnimalShop@gmail.com</p>
+                        <p>Telefono: +56945606045</p>
+                    </div>
+                    <div class="col-md-6 mt-5">
+                        <h5>Redes Sociales</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="https://www.instagram.com/nicoolvs.pr/" class="anclaFooter">Instagram</a> <svg
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-instagram" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+                                </svg></li>
+                            <li><a href="https://web.facebook.com/profile.php?id=100087654134671&locale=es_LA"
+                                    class="anclaFooter">Facebook</a> <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                    height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+                                    <path
+                                        d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+                                </svg></li>
+                            <li><a href="https://x.com/IbaiLlanos" class="anclaFooter">Twitter</a> <svg
+                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-twitter-x" viewBox="0 0 16 16">
+                                    <path
+                                        d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+                                </svg></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-md-6 mt-5">
-                    <h5>Redes Sociales</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="https://www.instagram.com/nicoolvs.pr/" class="anclaFooter">Instagram</a> <svg xmlns="http://www.w3.org/2000/svg"
-                                width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
-                            </svg></li>
-                        <li><a href="https://web.facebook.com/profile.php?id=100087654134671&locale=es_LA" class="anclaFooter">Facebook</a> <svg xmlns="http://www.w3.org/2000/svg"
-                                width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-                                <path
-                                    d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
-                            </svg></li>
-                        <li><a href="https://x.com/IbaiLlanos" class="anclaFooter">Twitter</a> <svg xmlns="http://www.w3.org/2000/svg"
-                                width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
-                                <path
-                                    d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
-                            </svg></li>
-                    </ul>
-                </div>
+                <hr>
+                <p class="text-center">AnimalShop &copy; 2024</p>
             </div>
-            <hr>
-            <p class="text-center">AnimalShop &copy; 2024</p>
-        </div>
-    </footer>
+        </footer>
 
 
 
@@ -792,6 +879,7 @@
             crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="{% static 'tienda/js/main.js' %}"></script>
+        <script src="{% static 'tienda/js/script.js' %}"></script>
 </body>
 
 </html>
