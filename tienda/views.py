@@ -41,3 +41,19 @@ def registro(request):
 def carrito(request):
     return render(request, 'carrito.html')
 
+def pagar(request):
+    carrito = request.session.get('carrito', {})
+    total_carrito = 0
+    
+    for item in carrito.values():
+        try:
+            total_carrito += item['acumulado']
+        except KeyError:
+            # Maneja el caso donde falta alguna clave esperada
+            continue
+    
+    context = {
+        'carrito': carrito,
+        'total_carrito': total_carrito
+    }
+    return render(request, 'pagar.html', context)

@@ -17,6 +17,7 @@ class Carrito:
                 "nombre": producto.nombre,
                 "acumulado": producto.precio,
                 "cantidad": 1,
+                "imagen": producto.imagen.url
             }
         else:
             self.carrito[id]["cantidad"] += 1
@@ -44,3 +45,4 @@ class Carrito:
     def limpiar(self):
         self.session["carrito"] = {}
         self.session.modified = True
+    
