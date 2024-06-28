@@ -16,7 +16,7 @@ $(document).ready(function(){
 
 
         alert("Inicio de sesion Exitoso!");
-        window.location.href = "/";
+        window.location.href = "http://127.0.0.1:8000/ ";
 
     });
 });
