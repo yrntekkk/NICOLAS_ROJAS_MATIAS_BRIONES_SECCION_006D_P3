@@ -11,8 +11,7 @@ def agregar_producto(request, producto_id):
     carrito = Carrito(request)
     producto = Producto.objects.get(id=producto_id)
     carrito.agregar(producto)
-    producto_nombre = producto.nombre  # Obtener el nombre del producto agregado
-    return render(request, 'index.html', {'productos': Producto.objects.all(), 'producto_nombre': producto_nombre})
+    return render(request, 'index.html', {'productos': Producto.objects.all()})
 
 
 def eliminar_producto(request, producto_id):

@@ -204,31 +204,6 @@
     </div>
 </div>
 
-<!-- Modal de confirmación de producto agregado al carrito -->
-{% if producto_nombre %}
-<div class="modal fade" id="modalAgregado" tabindex="-1" aria-labelledby="modalAgregadoLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-success text-light">
-                <h5 class="modal-title" id="modalAgregadoLabel">{{ producto_nombre }} agregado al carrito</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                El producto se ha agregado correctamente a tu carrito de compras.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
-<script>
-    // Script para mostrar automáticamente el modal al cargar la página
-    $(document).ready(function () {
-        $('#modalAgregado').modal('show');
-    });
-</script>
-{% endif %}
 
 
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
