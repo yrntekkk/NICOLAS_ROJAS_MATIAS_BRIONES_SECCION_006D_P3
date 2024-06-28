@@ -32,7 +32,7 @@ function updateCartUI() {
 
 // Función para formatear precios a pesos chilenos
 function formatPrice(price) {
-    return price.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
+    return price.replace(/\d(?=(\d{3})+\.)/g, '$&,');
 }
 
 // Función para mostrar un mensaje de confirmación

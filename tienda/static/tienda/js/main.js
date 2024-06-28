@@ -51,5 +51,5 @@ $(document).ready(function(){
 
 function cerrarsesion(){                         //Funcion para cerrar sesion
     sessionStorage.removeItem('autentificado');  //Con esto borramos lo que estaba guardado en autentificado es decir el usuario ya no estaria autentificado   
-    window.location.href='index.html';           //Con esto mandamos al usuario a la pagina principal despues de cerrar la sesion
+    window.location.href='/index/';           //Con esto mandamos al usuario a la pagina principal despues de cerrar la sesion
 }

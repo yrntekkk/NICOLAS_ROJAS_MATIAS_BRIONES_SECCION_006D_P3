@@ -16,7 +16,8 @@ $(document).ready(function(){
 
 
         alert("Inicio de sesion Exitoso!");
-        window.location.href = index;
+        console.log("Redirigiendo a 'index'");
+        window.location.href = 'index.html';
 
     });
 });
