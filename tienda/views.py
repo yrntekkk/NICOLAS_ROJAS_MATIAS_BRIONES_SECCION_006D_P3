@@ -57,3 +57,4 @@ def pagar(request):
         'total_carrito': total_carrito
     }
     return render(request, 'pagar.html', context)
+

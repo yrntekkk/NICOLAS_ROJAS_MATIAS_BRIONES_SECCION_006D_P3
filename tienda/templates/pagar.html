@@ -7,6 +7,8 @@
     {% load multiply %}
     <title>Pagar</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="{% static 'tienda/css/style.css' %}">
 </head>
 <body>
@@ -23,7 +25,7 @@
                                 <tr>
                                     <th>Imagen</th>
                                     <th>Nombre</th>
-                                    <th>Precio</th>
+                                    <th>Precio acumulado</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -31,7 +33,17 @@
                                 <tr>
                                     <td><img src="{{ value.imagen }}" alt="" class="product-img" style=" width: 100px; height: 100px; object-fit: cover"></td>
                                     <td>{{ value.nombre }}</td>
-                                    <td>{{ value.acumulado }}</td>
+                                    <td>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <a href="{% url 'Sub' value.producto_id %}" class="btn btn-outline-dark btn-sm btn-accion">-</a>
+                                            </div>
+                                            <span class="input-group-text">{{ value.acumulado }}</span>
+                                            <div class="input-group-append">
+                                                <a href="{% url 'Add' value.producto_id %}" class="btn btn-outline-dark btn-sm btn-accion">+</a>
+                                            </div>
+                                        </div>
+                                    </td>
                                 </tr>
                                 {% endfor %}
                                 <tr>
@@ -52,29 +64,29 @@
                             {% csrf_token %}
                             <div class="form-group">
                                 <label class="text-dark" for="nombre">Nombre Completo</label>
-                                <input type="text" class="form-control border border-dark" id="nombre" name="nombre" required>
+                                <input type="text" class="form-control border border-dark" id="id_nombre" name="nombre" required>
                             </div>
                             <div class="form-group">
                                 <label class="text-dark" for="email">Correo Electrónico</label>
-                                <input type="email" class="form-control border border-dark" id="email" name="email" required>
+                                <input type="email" class="form-control border border-dark" id="id_correo" name="email" required>
                             </div>
                             <div class="form-group">
                                 <label class="text-dark" for="direccion">Dirección</label>
-                                <input type="text" class="form-control border border-dark" id="direccion" name="direccion" required>
+                                <input type="text" class="form-control border border-dark" id="id_direccion" name="direccion" required>
                             </div>
                             <div class="form-group">
                                 <label class="text-dark" for="tarjeta">Número de Tarjeta</label>
-                                <input type="text" class="form-control border border-dark" id="tarjeta" name="tarjeta" required>
+                                <input type="text" class="form-control border border-dark" id="id_tarjeta" name="tarjeta" required>
                             </div>
                             <div class="form-group">
                                 <label class="text-dark" for="vencimiento">Fecha de Vencimiento</label>
-                                <input type="text" class="form-control border border-dark" id="vencimiento" name="vencimiento" placeholder="MM/AA" required>
+                                <input type="text" class="form-control border border-dark" id="id_vencimiento" name="vencimiento" placeholder="MM/AA" required>
                             </div>
                             <div class="form-group">
                                 <label class="text-dark" for="cvv">CVV</label>
-                                <input type="text" class="form-control border border-dark" id="cvv" name="cvv" required>
+                                <input type="text" class="form-control border border-dark" id="id_cvv" name="cvv" required>
                             </div>
-                            <button type="submit" class="btn btn-danger btn-block">Realizar Pago</button>
+                            <button type="submit" class="btn btn-danger btn-block" >Realizar Pago</button>
                         </form>
                     </div>
                 </div>
@@ -91,8 +103,29 @@
         </div>
     </div>
 
+    <!-- Modal de Pago Realizado -->
+<div class="modal fade" id="modalPagoRealizado" tabindex="-1" role="dialog" aria-labelledby="modalPagoRealizadoLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalPagoRealizadoLabel">¡Pago Realizado!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>¡Gracias por tu compra! El pago se ha realizado con éxito.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
 </body>
 </html>

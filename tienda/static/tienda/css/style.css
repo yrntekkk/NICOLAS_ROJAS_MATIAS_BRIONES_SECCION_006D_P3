@@ -50,11 +50,7 @@ p.lead {
 hr.my-4 {
     border-top: 2px solid #343a40; /* Cambia el color según tu paleta */
 }
-.product-img {
-    width: 100px; /* Tamaño deseado para las imágenes */
-    height: 100px; /* Ajusta la altura según el diseño */
-    object-fit: cover; /* Ajusta cómo se muestra la imagen para mantener la relación de aspecto */
-}
+
 
 @keyframes blink {
     0%, 50% {
