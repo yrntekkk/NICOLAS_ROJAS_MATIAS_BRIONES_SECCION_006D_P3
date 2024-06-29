@@ -33,6 +33,7 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('registro/', views.registro, name='registro'),
     path('pagar/',views.pagar, name='pagar'),
+    path('procesar_pago/', views.procesar_pago, name='procesar_pago'),
     
     
 ]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

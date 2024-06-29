@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from tienda.Carrito import Carrito
 from tienda.models import Producto
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 def index(request):
@@ -49,7 +50,6 @@ def pagar(request):
         try:
             total_carrito += item['acumulado']
         except KeyError:
-            # Maneja el caso donde falta alguna clave esperada
             continue
     
     context = {
@@ -57,4 +57,21 @@ def pagar(request):
         'total_carrito': total_carrito
     }
     return render(request, 'pagar.html', context)
+
+
+@csrf_exempt
+def procesar_pago(request):
+    if request.method == 'POST':
+        nombre = request.POST.get('nombre')
+        correo = request.POST.get('email')
+        direccion = request.POST.get('direccion')
+        tarjeta = request.POST.get('tarjeta')
+        vencimiento = request.POST.get('vencimiento')
+        cvv = request.POST.get('cvv')
+        request.session['carrito'] = {} 
+        
+        return render(request, 'agradecimiento.html')
+
+   
+    return redirect('index') 
 

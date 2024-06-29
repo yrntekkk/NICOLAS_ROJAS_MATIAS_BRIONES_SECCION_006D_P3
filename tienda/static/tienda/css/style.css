@@ -40,15 +40,15 @@ ul{
 }
 h1.display-4 {
     font-weight: bold;
-    color: white; /* Cambia este color según tu paleta */
+    color: white; 
 }
 
 p.lead {
-    color: #dc3545; /* Un color ligeramente más claro para el subtítulo */
+    color: #dc3545; 
 }
 
 hr.my-4 {
-    border-top: 2px solid #343a40; /* Cambia el color según tu paleta */
+    border-top: 2px solid #343a40; /
 }
 
 
